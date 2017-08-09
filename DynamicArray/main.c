@@ -14,7 +14,7 @@ void View_Array(Array *arr)
     Iterator seek = Array_Begin(arr);
     Iterator end = Array_End(arr);
 
-    printf("--- List of books you have ----");
+    printf("--- List of books you have ---- \n");
 
     for( ; seek!= end; seek++)
     {
@@ -52,7 +52,7 @@ void Simul_Find(Array *arr, const char *title)
     for( ; seek != end; seek++)
     {
         book = (Book *)(*seek);
-        if(Book && (Book_ComapareTitle(book, title) == 0))
+        if(book && (Book_CompareTitle(book, title) == 0))
         {
             printf("Find result : ");
             Book_View(book);
@@ -125,9 +125,13 @@ void Simul_Order()
     Array *arr = New_Array();
 
     Simul_OrderAdd(arr, New_Book("Romeo and Juliet", "Shakespeare", 10));
+    View_Array(arr);
     Simul_OrderAdd(arr, New_Book("Wing", "LeeSang", 20));
+    View_Array(arr);
     Simul_OrderAdd(arr, New_Book("Data Structure", "HongGilDong", 5));
+    View_Array(arr);
     Simul_OrderAdd(arr, New_Book("Algorithm", "LeeSunSin", 9));
+    View_Array(arr);
     Simul_OrderAdd(arr, New_Book("Design Pattern", "HeegyuBaek", 13));
 
     View_Array(arr);
@@ -192,9 +196,9 @@ void Simul_Index()
 
 int main()
 {
-    Simul_Seq();
+//    Simul_Seq();
     Simul_Order();
-    Simul_Index();
+//    Simul_Index();
 
     return 0;
 }
