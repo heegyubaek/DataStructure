@@ -112,7 +112,7 @@ void Simul_OrderAdd(Array *arr, Book *book)
     for( ; seek != end ; seek++)
     {
         stored_book = (Book *)(*seek);
-        if(stored_book && (Book_CompareAuthor(stored_book, book->author) >= 0))
+        if(stored_book && (Book_CompareAuthor(stored_book, book->author) == 0))
         {
             break;
         }
@@ -125,13 +125,9 @@ void Simul_Order()
     Array *arr = New_Array();
 
     Simul_OrderAdd(arr, New_Book("Romeo and Juliet", "Shakespeare", 10));
-    View_Array(arr);
-    Simul_OrderAdd(arr, New_Book("Wing", "LeeSang", 20));
-    View_Array(arr);
-    Simul_OrderAdd(arr, New_Book("Data Structure", "HongGilDong", 5));
-    View_Array(arr);
-    Simul_OrderAdd(arr, New_Book("Algorithm", "LeeSunSin", 9));
-    View_Array(arr);
+    Simul_OrderAdd(arr, New_Book("Wing", "LeeSang", 12));
+    Simul_OrderAdd(arr, New_Book("Data Structure", "Hong", 15));
+    Simul_OrderAdd(arr, New_Book("Algorithm", "SunSin", 19));
     Simul_OrderAdd(arr, New_Book("Design Pattern", "HeegyuBaek", 13));
 
     View_Array(arr);
@@ -196,9 +192,9 @@ void Simul_Index()
 
 int main()
 {
-//    Simul_Seq();
+    Simul_Seq();
     Simul_Order();
-//    Simul_Index();
+    Simul_Index();
 
     return 0;
 }

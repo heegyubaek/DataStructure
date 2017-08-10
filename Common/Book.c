@@ -43,7 +43,7 @@ int Book_CompareTitle(Book *book, const char *title)
 
 int Book_CompareAuthor(Book *book, const char *author)
 {
-    return strcmp(book->author, author);
+    return strncmp(book->author, author, strlen(author));
 }
 
 int Book_CompareNum(Book *book, int num)

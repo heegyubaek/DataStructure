@@ -20,12 +20,12 @@ Array *New_Array()
 
 void Delete_Array(Array *arr)
 {
- if(arr->base)
- {
+    if(arr->base != NULL)
+    {
      free(arr->base);
- }
+    }
 
- free(arr);
+    free(arr);
 }
 
 void Array_SetSize(Array *arr, int capacity, Element data)
@@ -49,6 +49,7 @@ void Array_Insert(Array *arr, Iterator pos, Element data)
 {
     int index = pos - arr->base;
     int mcount = arr->usage - index;
+
     if(arr->capacity == arr->usage)
     {
         if(arr->capacity)
