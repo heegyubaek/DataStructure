@@ -19,6 +19,8 @@ Graph *NewGraph(int max_vertex);
 void DeleteGraph(Graph *graph);
 void AddEdge(Graph *graph, int start, int goal);
 void ViewGraph(Graph *graph);
+void ViewIndegree(Graph *g);
+void ViewOutdegree(Graph *g);
 
 int main(void)
 {
@@ -30,6 +32,8 @@ int main(void)
     AddEdge(graph, 4, 2);
 
     ViewGraph(graph);
+    ViewIndegree(graph);
+    ViewOutdegree(graph);
     DeleteGraph(graph);
 
     return 0;
@@ -86,3 +90,43 @@ void ViewGraph(Graph *graph)
     }
 }
 
+void ViewIndegree(Graph *g)
+{
+    int i,j;
+    int degree;
+    printf("In-degree\n");
+
+    for(i = 0; i < g->vn; i++)
+    {
+        degree = 0;
+        for(j = 0; j < g->vn; j++)
+        {
+            if(g->matrix[j][i])
+            {
+                degree++;
+            }
+        }
+        printf("%d", degree);
+    }
+    printf("\n");
+}
+
+void ViewOutdegree(Graph *g)
+{
+    int i,j;
+    int degree;
+    printf("Out-degree\n");
+    for(i = 0; i < g->vn; i++)
+    {
+        degree = 0;
+        for(j = 0; j < g->vn; j++)
+        {
+            if(g->matrix[i][j])
+            {
+                degree++;
+            }
+        }
+        printf("%d", degree);
+    }
+    printf("\n");
+}
